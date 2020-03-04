@@ -4963,10 +4963,9 @@ react-is@^16.12.0, react-is@^16.8.1, react-is@^16.8.3:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.0.tgz#0f37c3613c34fe6b37cd7f763a0d6293ab15c527"
   integrity sha512-GFMtL0vHkiBv9HluwNZTggSn/sCyEt9n02aM0dSAjGGyqyNlAyftYm4phPxdvCigG15JreC5biwxCgTAJZ7yAA==
 
-react-native-maps@0.26.1:
-  version "0.26.1"
-  resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.26.1.tgz#6ec316259b38d259c8974448d894bd7a23101da4"
-  integrity sha512-p4VTB8YB5ZmOmDRCUpoHZkm05amZwhIo04AJMBbB9+JAR2PNNfpo0vceoWX0Mag4wnePkdzPomeWMplr/wimTg==
+"react-native-maps@https://github.com/react-native-community/react-native-maps/archive/v0.24-rc1.tar.gz":
+  version "0.23.0"
+  resolved "https://github.com/react-native-community/react-native-maps/archive/v0.24-rc1.tar.gz#b032268667c006d51b382494d7ef6e6917250c29"
 
 react-native@0.59.9:
   version "0.59.9"

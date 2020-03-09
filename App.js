@@ -6,6 +6,7 @@ import {
   View,
   PermissionsAndroid,
   Platform,
+  TouchableOpacity,
 } from 'react-native';
 
 const MARKS = [
@@ -61,12 +62,14 @@ const MARKS = [
   },
 ]; 
 
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.mounted = false;
     this.state = {
       myPosition: {
+        // Default CDMX Sofia's home
         latitude: 19.416862,
         longitude: -99.172404,
       },
@@ -91,6 +94,7 @@ class App extends Component {
       this.watchLocation();
     }
   }
+
   watchLocation() {
     this.watchID = navigator.geolocation.watchPosition(
       position => {
@@ -107,17 +111,30 @@ class App extends Component {
       this.props.geolocationOptions
     );
   }
+
   componentWillUnmount() {
     this.mounted = false;
     if (this.watchID) {
       navigator.geolocation.clearWatch(this.watchID);
     }
   }
+
+  resetRegion = () => {
+    console.log("resetRegion");
+    const { myPosition } = this.state;
+    this.map.animateToRegion({ ...myPosition, 
+      latitudeDelta: 0.0143,
+      longitudeDelta: 0.0134,
+    },1000)
+  }
+
   render() {
+    console.log("render");
     const { myPosition } = this.state;
     return (
       <View style={{ flex: 1 }}>
         <MapView
+          ref={(map) => { this.map = map; }}
           style={{ flex: 1 }}
           region={{
               ...myPosition,
@@ -137,17 +154,31 @@ class App extends Component {
           ))}
           </MapView>
           <View style={{
-            width: 60,  
-            height: 60,   
-            borderRadius: 30,
+            width: '95%',  
+            height: 150,
+            borderRadius: 10,
             padding: 20,
-            backgroundColor: 'white',                                    
+            backgroundColor: 'white', 
             position: 'absolute',                                          
-            bottom: 100,                                                    
-            right: 10, 
+            bottom: 10,
+            marginLeft: 10,
           }}>
-            <Text>🎯</Text>
+            <Text>Hola Mundo</Text>
           </View>
+          <TouchableOpacity
+            onPress={this.resetRegion}
+            style={{
+              width: 60,  
+              height: 60,   
+              borderRadius: 30,
+              padding: 20,
+              backgroundColor: 'white',                                    
+              position: 'absolute',                                          
+              bottom: 180,                                                    
+              right: 10, 
+            }}>
+            <Text>🎯</Text>
+          </TouchableOpacity>
       </View>
     )
   }

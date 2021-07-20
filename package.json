@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "react": "16.8.3",
-    "react-native": "0.59.9",
+    "react-native": "0.62.3",
     "react-native-maps": "https://github.com/react-native-community/react-native-maps/archive/v0.24-rc1.tar.gz"
   },
   "devDependencies": {
